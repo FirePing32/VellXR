@@ -19,8 +19,8 @@ def user_logout(request):
 def register(request):
     registered = False
     if request.method == 'POST':
-        user_form = UserForm(data=request.POST)
-        user_detail_form = UserDetailForm(data=request.POST)
+        user_form = UserForm(request.POST)
+        user_detail_form = UserDetailForm(request.POST, request.FILES)
         if user_form.is_valid() and user_detail_form.is_valid():
             user = user_form.save()
             user.set_password(user.password)
