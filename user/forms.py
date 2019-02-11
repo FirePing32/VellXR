@@ -17,7 +17,7 @@ class UserForm(forms.ModelForm):
 class UserDetailForm(forms.ModelForm):
     bio = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
     portfolio_site = forms.CharField(widget=forms.URLInput(attrs={'class':'form-control text-center'}))
-    profile_picture = forms.ImageField(widget=forms.ImageField(attrs={'class':'form-control text-center input-group input-group-prepend btn input-group-text', 'id':'inputGroupFileAddon01', 'style':'text-align: center; vertical-align: center; width: 100%; height: 100%;'}), upload_to='profile_picture', null=True, blank=True)
+    profile_picture = forms.ImageField(widget=forms.FileInput(attrs={'class':'form-control text-center input-group input-group-prepend btn input-group-text', 'id':'inputGroupFileAddon01', 'style':'text-align: center; vertical-align: center; width: 100%; height: 100%;'}), upload_to='profile_picture', null=True, blank=True)
 
     class Meta():
         model = UserDetail
