@@ -5,4 +5,5 @@ Add blog and comments model
 Renaming of images uploaded
 Unique user authentication
 Seperate titles for different pages
-Fix image field bug
+Fix image not showing bug
+Custom 404 page
