@@ -7,3 +7,4 @@ Unique user authentication
 Seperate titles for different pages
 Fix image not showing bug
 Custom 404 page
+Analytics, Adsense linking with vellxr.cf
