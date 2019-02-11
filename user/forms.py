@@ -6,7 +6,7 @@ from django.forms import widgets
 class UserForm(forms.ModelForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
-    email = forms.CharField(widget=forms.URLInput(attrs={'class':'form-control text-center'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
     username = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control text-center', 'type':'username', 'id':'exampleInputEmail1'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control text-center', 'type':'password', 'id':'exampleInputPassword1'}))
 
