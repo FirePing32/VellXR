@@ -27,7 +27,7 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = '&s@@mdx^!lz0a2@&y@e62ng&brz$9y1-0o5r7wqqz42=a@f75*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', '192.168.1.4', '2bd20406.ngrok.io', 'prakhargurunani.herokuapp.com']
 
