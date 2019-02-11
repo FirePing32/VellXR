@@ -147,9 +147,14 @@ button {
     </div>
     <input type="checkbox" id="nav-check">
     <div class="nav-links">
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+      <a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+      {% else %}
       <a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
       <a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a>
       <a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+      {% endif %}
     </div>
   </div>
   <br><br><br><br>
