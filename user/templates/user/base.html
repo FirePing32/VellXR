@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>VellXR | The programmable logic forum</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: Rubik;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Rubik';
+}
+
+button {
+    font-family: Rubik;
+  }
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #D3D3D3;
+  position: relative;
+  font-family: Rubik;
+}
+
+.nav > .nav-header {
+  display: inline;
+  font-family: Rubik;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #D3D3D3;
+  padding: 10px 10px 10px 10px;
+  margin-left: 50px;
+  font-family: Rubik;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+  padding-right: 15px;
+  font-family: Rubik;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #696969;
+  font-family: Rubik;
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:768px) {
+  html {
+    font-family: Rubik;
+  }
+  button {
+    font-family: Rubik;
+  }
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding-right: 10px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover {
+    background-color: transparent;
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #808080;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #D3D3D3;
+    overflow: hidden;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    top: 50px;
+    left: 0px;
+    font-family: Rubik;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+    font-family: Rubik;
+  }
+  .nav > #nav-check:not(:checked) + .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked + .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+</style>
+<div class="nav" style="position: fixed; z-index: +1;">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" style="height: 30px; width: 30px; position: absolute; top: 11px; left: 20px;"></a>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    <input type="checkbox" id="nav-check">
+    <div class="nav-links">
+      <a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+      <a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a>
+      <a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+    </div>
+  </div>
+  <br><br><br><br>
+{% block body_block %}
+{% endblock %}
+  </div>
+</body>
+</html>

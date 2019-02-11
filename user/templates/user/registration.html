@@ -1,0 +1,22 @@
+{% extends "user/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<div class="container text-center">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        <h1>Register</h1><br>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ user_detail_form.as_p }}
+          <br>
+          <input type="submit" name="" value="Register" class="btn" style="font-family: Rubik;">
+        </form>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "user/base.html" %}
+{% block body_block %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+  <div class="jumbotron text-center">
+    {% if user.is_authenticated %}
+        <h3>Hello {{ user.username }}</h3>
+    {% else %}
+        <h1>Welcome to VellXR !</h1>
+        <h3>VellXR is a global forum for technology enthusiasts where they can write articles and collaborate with others.</h3>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

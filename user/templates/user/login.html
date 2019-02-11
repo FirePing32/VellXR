@@ -1,0 +1,16 @@
+{% extends 'user/base.html' %}
+{% block body_block %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Login</h1><br>
+<form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          {# A more "HTML" way of creating the login form#}
+          <input type="username" name="username" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username"><br>
+          <input type="password" name="password" class="form-control text-center" id="exampleInputPassword1" placeholder="Password"><br><br>
+<input type="submit" name="" value="Login" class="btn" style="font-family: Rubik;">
+</form>
+</div>
+  </div>
+{% endblock %}
