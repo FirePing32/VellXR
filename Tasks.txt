@@ -6,4 +6,5 @@ Renaming of images uploaded
 Unique user authentication
 Seperate titles for different pages
 Custom 404 page
-Analytics, Adsense linking with vellxr.cf
+Analytics, Adsense linking with www.vellxr.cf
+Setup CDN for profile pictures

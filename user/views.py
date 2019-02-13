@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from cloudinary.forms import cl_init_js_callbacks
 
 def index(request):
     return render(request,'user/index.html')
@@ -18,9 +19,11 @@ def user_logout(request):
 
 def register(request):
     registered = False
+    context = dict( backend_form = UserDetailForm())
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         user_detail_form = UserDetailForm(request.POST, request.FILES)
+        context['posted'] = user_detail_form.instance
         if user_form.is_valid() and user_detail_form.is_valid():
             user = user_form.save()
             user.set_password(user.password)
@@ -40,7 +43,7 @@ def register(request):
     return render(request,'user/registration.html',
                           {'user_form':user_form,
                            'user_detail_form':user_detail_form,
-                           'registered':registered})
+                           'registered':registered}, context)
 
 def user_login(request):
     if request.method == 'POST':
