@@ -1,0 +1,24 @@
+{% extends "user/base.html" %}
+{% load staticfiles %}
+{% load cloudinary %}
+{% block body_block %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor.js' %}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container text-center">
+    <div class="jumbotron">
+      {% if written %}
+        <h1>Your post is published !</h1>
+      {% else %}
+        <h1>Write</h1><br>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ post_form.as_p }}
+          <br>
+          <input type="submit" name="" value="Publish" class="btn" style="font-family: Rubik;">
+        </form>
+        {% endif %}
+    </div>
+  </div>
+{% endblock %}

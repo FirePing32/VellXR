@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from user.forms import UserForm, UserDetailForm
+from user.forms import UserForm, UserDetailForm, PostForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from cloudinary.forms import cl_init_js_callbacks
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 def index(request):
     return render(request,'user/index.html')
@@ -55,10 +57,34 @@ def user_login(request):
                 login(request,user)
                 return HttpResponseRedirect(reverse('index'))
             else:
-                return HttpResponse("Your account was inactive.")
+                return HttpResponse("Account not found !")
         else:
             print("Someone tried to login and failed.")
             print("They used username: {} and password: {}".format(username,password))
             return HttpResponse("Invalid login details given")
     else:
         return render(request, 'user/login.html', {})
+
+@login_required
+def write(request):
+    written = False
+    user = User.objects.get(username=request.user.username)
+    post_context_detail = dict( post_backend_form = PostForm())
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, request.FILES)
+        post_context_detail['posted'] = post_form.instance
+        if post_form.is_valid():
+            my_post = post_form.save(commit=False)
+            my_post.author = request.user
+            my_post.published_date = timezone.now()
+            if 'post_image' in request.FILES:
+                print('found post image')
+                my_post.post_image = request.FILES['post_image']
+            my_post.save()
+            written = True
+        else:
+            print(post_form.errors)
+    else:
+        post_form = PostForm()
+    return render(request,'user/write.html',
+                          {'post_form':post_form,}, post_context_detail)

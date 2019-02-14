@@ -1,7 +1,9 @@
 from django import forms
 from user.models import UserDetail
+from user.models import Post
 from django.contrib.auth.models import User
 from django.forms import widgets
+from ckeditor.widgets import CKEditorWidget
 
 class UserForm(forms.ModelForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
@@ -22,3 +24,12 @@ class UserDetailForm(forms.ModelForm):
     class Meta():
         model = UserDetail
         fields = ('bio', 'portfolio_site', 'profile_picture')
+
+class PostForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
+    post_image = forms.ImageField(widget=forms.FileInput(attrs={'class':'form-control text-center custom-file custom-file-input btn btn-default btn-file input-group-text', 'id':'inputGroupFile01', 'aria-describedby':'inputGroupFileAddon01', 'style':'text-align: center; vertical-align: center; width: 100%; height: 100%;'}))
+    content = forms.CharField(widget=CKEditorWidget())
+
+    class Meta():
+        model = Post
+        fields = ('title', 'post_image', 'content')

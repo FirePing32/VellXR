@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'cloudinary',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -137,5 +138,31 @@ DATABASES['default'].update(prod_db)
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 LOGIN_URL = '/login/'
+
+CKEDITOR_CONFIGS = {
+   'default': {
+       'toolbar_Full': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            [ 'Find', 'Replace'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule'],
+            ['TextColor'],
+            ['Smiley', 'SpecialChar'], ['Source', 'PageBreak', 'codesnippet'],
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+            ['NumberedList','BulletedList'],
+            ['Indent','Outdent', 'Blockquote'],
+            ['Font', 'FontSize'],
+            ['Maximize'],
+        ],
+        'extraPlugins': 'justify,liststyle,indent,codesnippet,lineutils,widget',
+        'codeSnippet_theme': 'googlecode',
+        'height': '100%',
+        'width': '100%',
+        'filebrowserWindowHeight': '100%',
+        'filebrowserWindowWidth': '100%',
+        'toolbarCanCollapse': True,
+
+   },
+}
 
 django_heroku.settings(locals())

@@ -7,3 +7,8 @@
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/';</script>
+{{ block.super }}
+{% endblock %}
