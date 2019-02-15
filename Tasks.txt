@@ -1,9 +1,7 @@
 Front page - before and after login
 Admin - change default page to VellXR custom styles
 Include Search bar
-Add blog and comments model
-Unique user authentication
+Add comments model
 Seperate titles for different pages
 Custom 404 page
 Analytics, Adsense linking with www.vellxr.cf
-Fix 'Your post is published'

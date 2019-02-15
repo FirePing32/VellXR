@@ -68,7 +68,6 @@ def user_login(request):
 @login_required
 def write(request):
     written = False
-    user = User.objects.get(username=request.user.username)
     post_context_detail = dict( post_backend_form = PostForm())
     if request.method == 'POST':
         post_form = PostForm(request.POST, request.FILES)
@@ -87,4 +86,4 @@ def write(request):
     else:
         post_form = PostForm()
     return render(request,'user/write.html',
-                          {'post_form':post_form,}, post_context_detail)
+                          {'post_form':post_form, 'written':written}, post_context_detail)

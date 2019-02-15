@@ -6,7 +6,9 @@ import cloudinary.uploader
 import cloudinary.api
 from cloudinary.models import CloudinaryField
 from ckeditor.fields import RichTextField
-# Create your models here.
+
+User._meta.get_field('email')._unique = True
+User._meta.get_field('username')._unique = True
 
 cloudinary.config( 
   secure=True,
@@ -26,9 +28,8 @@ class UserDetail(models.Model):
 
 class Post(models.Model): 
 
-    author = models.OneToOneField(User, on_delete=models.CASCADE) 
+    author = models.ForeignKey(User, on_delete=models.CASCADE) 
     title = models.CharField(max_length=50) 
-    slug = models.SlugField(max_length=50, help_text="Slug will be generated automatically from the title of the post")
     post_image = CloudinaryField('image', blank=True, null=True)
     content = RichTextField()  
     published_date = models.DateTimeField(default=timezone.now) 
