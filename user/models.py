@@ -6,6 +6,8 @@ import cloudinary.uploader
 import cloudinary.api
 from cloudinary.models import CloudinaryField
 from ckeditor.fields import RichTextField
+from django.template.defaultfilters import slugify
+import datetime
 
 User._meta.get_field('email')._unique = True
 User._meta.get_field('username')._unique = True
@@ -20,7 +22,7 @@ cloudinary.config(
 class UserDetail(models.Model):
 
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    bio = models.CharField(max_length=150, blank=True)
+    bio = models.CharField(max_length=50, blank=True)
     portfolio_site = models.URLField(blank=True)
     profile_picture = CloudinaryField('image', null=True, blank=True)
     def __str__(self):
@@ -29,6 +31,7 @@ class UserDetail(models.Model):
 class Post(models.Model): 
 
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
+    slug = models.CharField(max_length=50, unique=True)
     title = models.CharField(max_length=50) 
     post_image = CloudinaryField('image', blank=True, null=True)
     content = RichTextField()  
@@ -40,3 +43,11 @@ class Post(models.Model):
 
     def __str__(self): 
         return self.title 
+
+    def save(self):
+        super(Post, self).save()
+        date = datetime.date.today()
+        self.slug = '%s-%i-%i-%i' % (
+            slugify(self.title), date.day, date.month, date.year
+        )
+        super(Post, self).save()

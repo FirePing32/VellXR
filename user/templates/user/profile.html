@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+{% load staticfiles %}
+{% load cloudinary %}
+{% block body_block %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+    <div class="jumbotron text-center">
+        {{ user_image }}
+        <h1>{{ user_username.username }}</h1>
+        <h3>{{ user_username.first_name}} {{ user_profile.last_name }}</h3>
+        <h3>{{ user_username.email }}</h3>
+        <h3>{{ user_bio }}</h3>
+        <h3>{{ user_portfolio_site }}</h3>
+    </div>
+</div>
+{% endblock %}  

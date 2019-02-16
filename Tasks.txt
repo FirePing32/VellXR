@@ -4,4 +4,5 @@ Include Search bar
 Add comments model
 Seperate titles for different pages
 Custom 404 page
+Create user profile
 Analytics, Adsense linking with www.vellxr.cf
