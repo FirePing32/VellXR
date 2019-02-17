@@ -22,11 +22,9 @@ def user_logout(request):
 
 def register(request):
     registered = False
-    context = dict( backend_form = UserDetailForm())
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         user_detail_form = UserDetailForm(request.POST, request.FILES)
-        context['posted'] = user_detail_form.instance
         if user_form.is_valid() and user_detail_form.is_valid():
             user = user_form.save()
             user.set_password(user.password)
@@ -46,7 +44,7 @@ def register(request):
     return render(request,'user/registration.html',
                           {'user_form':user_form,
                            'user_detail_form':user_detail_form,
-                           'registered':registered}, context)
+                           'registered':registered})
 
 def user_login(request):
     if request.method == 'POST':
@@ -69,10 +67,8 @@ def user_login(request):
 @login_required
 def write(request):
     written = False
-    post_context_detail = dict( post_backend_form = PostForm())
     if request.method == 'POST':
         post_form = PostForm(request.POST, request.FILES)
-        post_context_detail['posted'] = post_form.instance
         if post_form.is_valid():
             my_post = post_form.save(commit=False)
             my_post.author = request.user
@@ -87,7 +83,7 @@ def write(request):
     else:
         post_form = PostForm()
     return render(request,'user/write.html',
-                          {'post_form':post_form, 'written':written}, post_context_detail)
+                          {'post_form':post_form, 'written':written})
 
 def user_profile(request, username):
     user_username = User.objects.get(username=username)
