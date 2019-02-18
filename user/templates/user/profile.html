@@ -10,11 +10,6 @@
         <p>{{ user_username.first_name}} {{ user_username.last_name }}</p>
         <p>{{ user_bio }}</p>
         <p>{{ user_portfolio_site }}</p>
-        {% if user.is_authenticated %}
-            <p>{{ user_username.email }}</p>
-        {% else %}
-            <a href="{% url 'login' %}"><p>Login to view email</p></a>
-        {% endif %}
     </div>
 </div>
 {% endblock %}  

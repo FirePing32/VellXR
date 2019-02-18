@@ -24,16 +24,16 @@ class UserDetail(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     bio = models.CharField(max_length=50, blank=True)
     portfolio_site = models.URLField(blank=True)
-    profile_picture = CloudinaryField('image', null=True, blank=True)
+    profile_picture = CloudinaryField('image', null=True, blank=True, default="logo.png")
     def __str__(self):
         return self.user.username
 
 class Post(models.Model): 
 
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
-    slug = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50, unique=True)
     title = models.CharField(max_length=50) 
-    post_image = CloudinaryField('image', blank=True, null=True)
+    post_image = CloudinaryField('image', blank=True, null=True, default="logo.png")
     content = RichTextField()  
     published_date = models.DateTimeField(default=timezone.now) 
 
