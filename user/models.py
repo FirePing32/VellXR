@@ -31,7 +31,7 @@ class UserDetail(models.Model):
 class Post(models.Model): 
 
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
-    slug = models.SlugField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50)
     title = models.CharField(max_length=50) 
     post_image = CloudinaryField('image', blank=True, null=True, default="logo.png")
     content = RichTextField()  
@@ -46,8 +46,9 @@ class Post(models.Model):
 
     def save(self):
         super(Post, self).save()
+        cur_time = datetime.datetime.now()
         date = datetime.date.today()
-        self.slug = '%s-%i%i%i%i' % (
-            slugify(self.title), datetime.time, date.day, date.month, date.year
+        self.slug = '%s-%d%d%d%d%d%d' % (
+            slugify(self.title), cur_time.hour, cur_time.minute, cur_time.second, cur_time.day, cur_time.month, cur_time.year
         )
         super(Post, self).save()
