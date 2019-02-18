@@ -47,7 +47,7 @@ class Post(models.Model):
     def save(self):
         super(Post, self).save()
         date = datetime.date.today()
-        self.slug = '%s-%i-%i-%i' % (
-            slugify(self.title), date.day, date.month, date.year
+        self.slug = '%s-%i%i%i%i' % (
+            slugify(self.title), datetime.time, date.day, date.month, date.year
         )
         super(Post, self).save()
