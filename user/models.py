@@ -47,7 +47,6 @@ class Post(models.Model):
     def save(self):
         super(Post, self).save()
         cur_time = datetime.datetime.now()
-        date = datetime.date.today()
         self.slug = '%s-%d%d%d%d%d%d' % (
             slugify(self.title), cur_time.hour, cur_time.minute, cur_time.second, cur_time.day, cur_time.month, cur_time.year
         )

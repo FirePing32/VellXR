@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from cloudinary.forms import cl_init_js_callbacks
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .models import UserDetail
+from .models import UserDetail, Post
 
 def index(request):
     return render(request,'user/index.html')
@@ -93,4 +93,9 @@ def user_profile(request, username):
     return render(request, 'user/profile.html', {'user_username':user_username,
                                                  'user_image':user_image,
                                                  'user_bio':user_bio,
-                                                 'user_portfolio_site':user_portfolio_site})
+                                                 'user_portfolio_site':user_portfolio_site,
+                                                 })
+
+def profile_posts(request, username):
+    user_posts = Post.objects.filter(author__username=username).order_by('-published_date')[:3]
+    return render(request, 'user/posts.html', {'user_posts':user_posts})

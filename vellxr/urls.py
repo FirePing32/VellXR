@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^write/$', views.write, name='write'),
     url(r'^profile/(?P<username>\w+)/$', views.user_profile, name='profile'),
+    url(r'^profile/(?P<username>\w+)/posts/$', views.profile_posts, name='profile_posts'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

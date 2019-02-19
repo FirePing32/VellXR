@@ -11,5 +11,8 @@
         <p>{{ user_bio }}</p>
         <p>{{ user_portfolio_site }}</p>
     </div>
+    <div class="jumbotron text-center">
+        <a class="btn btn-default text-center" href="{% url 'profile_posts' user_username.username %}">Posts</a>
+    </div>
 </div>
 {% endblock %}  
