@@ -3,6 +3,7 @@ Admin - change default page to VellXR custom styles
 Include Search bar
 Add comments model, following model
 Seperate titles for different pages
+Use offline CSS and Javascript
 Custom 404 page
 Add website status page
 Create user profile
