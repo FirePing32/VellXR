@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+    <div class="jumbotron">
+        <div class="text-center"> 
+        {% for user_posts_detail in user_posts_details %}
+            <h1>{{ user_posts_detail.title }}</h1><br>
+            <img src="{{ user_posts_detail.post_image.url }}" style="width: 300px; height: 300px; border-radius: 10%;" alt="{{ user_posts_detail.title }}" title="{{ user_posts_detail.title }}"><br><br>
+        </div>
+        {{ user_posts_detail.content|safe }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}  

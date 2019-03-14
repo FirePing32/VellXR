@@ -99,3 +99,7 @@ def user_profile(request, username):
 def profile_posts(request, username):
     user_posts = Post.objects.filter(author__username=username).order_by('-published_date')[:3]
     return render(request, 'user/posts.html', {'user_posts':user_posts})
+
+def profile_posts_detail(request, username, slug):
+    user_posts_detail = Post.objects.filter(slug=slug)
+    return render(request, 'user/posts_detail.html', {'user_posts_details':user_posts_detail})
