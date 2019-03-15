@@ -2,24 +2,15 @@
 {% load staticfiles %}
 {% block body_block %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-}
-.space-evenly { 
-  justify-content: space-evenly; 
-}
-</style>
 <div class="container">
     <div class="jumbotron text-center">
-        <ul class="flex-container space-evenly">
+      <div class="row">
         {% for my_post in user_posts %}
-            <a href="{{ my_post.slug }}"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969;" class="btn btn-default">{{ my_post.title }}</h3></a>
+        <div class="col-sm-4">
+            <a href="{{ my_post.slug }}"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969;" class="btn btn-default">{{ my_post.title }}</h3></a><br><br><br><br>
+        </div>
         {% endfor %}
-        </ul>
+      </div>
     </div>
 </div>
 {% endblock %}  
