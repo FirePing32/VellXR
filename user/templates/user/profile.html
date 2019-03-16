@@ -9,7 +9,7 @@
         <h1>{{ user_username.username }}</h1>
         <p>{{ user_username.first_name}} {{ user_username.last_name }}</p>
         <p>{{ user_bio }}</p>
-        <p>{{ user_portfolio_site }}</p>
+        <a href="{{ user_portfolio_site }}" style="text-decoration: none;"><p>{{ user_portfolio_site }}</p></a>
     </div>
     <div class="jumbotron text-center">
         <a class="btn btn-default text-center" href="{% url 'profile_posts' user_username.username %}">Posts</a>

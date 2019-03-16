@@ -102,4 +102,8 @@ def profile_posts(request, username):
 
 def profile_posts_detail(request, username, slug):
     user_posts_detail = Post.objects.filter(slug=slug)
-    return render(request, 'user/posts_detail.html', {'user_posts_details':user_posts_detail})
+    cur_user_username = User.objects.get(username=username)
+    cur_user_image = cur_user_username.userdetail.profile_picture
+    return render(request, 'user/posts_detail.html', {'user_posts_details':user_posts_detail, 
+                                                      'cur_user_username':cur_user_username,
+                                                      'cur_user_image':cur_user_image})
