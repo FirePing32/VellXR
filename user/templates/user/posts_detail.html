@@ -8,7 +8,7 @@
         {% for user_posts_detail in user_posts_details %}
             <h1>{{ user_posts_detail.title }}</h1><br>
             <a href="{% url 'profile' user_posts_detail.author %}" style="text-decoration: none;"><h3><emp style="color: #696969;"><img src="{{ cur_user_image.url }}" style="width: 50px; height: 50px; border-radius: 100%;" alt="{{ cur_user_username.username }}" title="{{ cur_user_username.username }}"> {{ cur_user_username.first_name }} {{ cur_user_username.last_name }}</emp></h3></a>
-            <h5>{{ user_posts_detail.published_date }}</h5><br>
+            <h5>{{ user_posts_detail.published_date }} | {% widthratio user_posts_detail.content|wordcount 300 1 %} min read</h5><br>
             <img src="{{ user_posts_detail.post_image.url }}" style="width: 300px; height: 300px; border-radius: 10%;" alt="{{ user_posts_detail.title }}" title="{{ user_posts_detail.title }}"><br><br>
         </div>
         <div style="word-wrap: break-word;">
