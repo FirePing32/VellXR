@@ -91,6 +91,7 @@ button {
   text-decoration: none;
   color: #696969;
   font-family: Rubik;
+  margin-right: -5px;
 }
 
 .nav > #nav-check {
@@ -142,6 +143,7 @@ button {
     display: block;
     width: 100%;
     font-family: Rubik;
+    margin-left: 10px;
   }
   .nav > #nav-check:not(:checked) + .nav-links {
     height: 0px;
@@ -154,7 +156,7 @@ button {
 </style>
 <div class="nav" style="position: fixed; z-index: +1;">
     <div class="navbar-header">
-        <a class="navbar-brand" title="VellXR" alt="VellXR" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" style="height: 30px; width: 30px; position: absolute; top: 11px; left: 20px;"></a>
+        <a class="navbar-brand" title="VellXR" alt="VellXR" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" style="height: 30px; width: 30px; position: absolute; top: 10px; left: 20px;"></a>
     </div>
     <div class="nav-btn">
       <label for="nav-check">
