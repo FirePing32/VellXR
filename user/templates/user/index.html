@@ -2,7 +2,7 @@
 {% block body_block %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="container">
-  <div class="jumbotron text-center">
+  <div class="jumbotron text-center" style="background-color:white;">
     {% if user.is_authenticated %}
         <h3>Hello {{ user.username }}</h3>
     {% else %}

@@ -30,10 +30,55 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+      <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" class="logo" style="height: 30px; width: 30px;" title="VellXR" alt="VellXR"></a>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Menu</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav> 
+<br><br><br><br>
+{% block body_block %}
+{% endblock %}
+<amp-auto-ads type="adsense"
+    data-ad-client="ca-pub-3728861792178788">
+</amp-auto-ads>
+</body>
+</html>   
+<!--
 <style>
 * {
   box-sizing: border-box;
@@ -97,7 +142,14 @@ button {
 .nav > #nav-check {
   display: none;
 }
-
+.navbar-brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -5px;
+  text-align: center;
+  margin: auto;
+}
 @media (max-width:768px) {
   html {
     font-family: Rubik;
@@ -152,12 +204,18 @@ button {
     height: calc(100vh - 50px);
     overflow-y: auto;
   }
+  .navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -5px;
+    text-align: center;
+    margin: auto;
+  }
 }
 </style>
-<div class="nav" style="position: fixed; z-index: +1;">
-    <div class="navbar-header">
-        <a class="navbar-brand" title="VellXR" alt="VellXR" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" style="height: 30px; width: 30px; position: absolute; top: 10px; left: 20px;"></a>
-    </div>
+<div class="nav" style="position: fixed; z-index: +1; background-color: #ff9100; text-align: center;">
+        <a class="navbar-brand" title="VellXR" alt="VellXR" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" style="height: 30px; width: 30px;"></a>
     <div class="nav-btn">
       <label for="nav-check">
         <span></span>
@@ -178,12 +236,61 @@ button {
       {% endif %}
     </div>
   </div>
-  <br><br><br><br>
-{% block body_block %}
-{% endblock %}
+-->
+<!--
+<div class="navbar navbar-fixed-top" role="navigation" style="background-color: #ff9100;">
+      
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" style="height: 30px; width: 30px; display: inline-block;"></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>  
+      </ul>
+    </div>
+    
   </div>
-<amp-auto-ads type="adsense"
-    data-ad-client="ca-pub-3728861792178788">
- </amp-auto-ads>
-</body>
-</html>
+<style>
+@media (min-width:768px) { 
+	.navbar > .container {
+	    text-align: center;
+	}
+	.navbar-header,.navbar-brand,.navbar .navbar-nav,.navbar .navbar-nav > li {
+	    float: none;
+	    display: inline-block;
+	}
+	.collapse.navbar-collapse {
+	    float: none;
+	    display: inline-block!important;
+	    width: auto;
+	    clear: none;
+	}
+}
+@media (max-width:768px) { 
+	.navbar > .container {
+	    text-align: center;
+	}
+	.navbar-header,.navbar .navbar-nav,.navbar .navbar-nav > li {
+      text-align: center;
+  }
+  .navbar-brand {
+	  position: absolute;
+    width: 100%;
+    left: 0;
+    top: -5px;
+    text-align: center;
+    margin: auto;
+  }
+}
+</style>
+</div>
+-->
