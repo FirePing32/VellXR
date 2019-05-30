@@ -17,11 +17,6 @@ import logging
 from django.core.mail import send_mail
 import django_smtp_ssl
 
-try:
-    from .local_settings import *
-except ValueError:
-    pass
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'user/templates')
@@ -41,12 +36,12 @@ EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 ADMINS = [('Prakhar Gurunani', 'prakhargurunani@gmail.com')]
 
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+SENDGRID_API_KEY = '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'
 MAILER_LIST = ['prakhargurunani@gmail.com']
 DEFAULT_FROM_EMAIL = 'info@vellxr.herokuapp.com'
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.getenv('SENDGRID_EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'prakhar_gurunani'
+EMAIL_HOST_PASSWORD = 'root@helloworld123'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
