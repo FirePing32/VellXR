@@ -10,11 +10,10 @@ from django.template.defaultfilters import slugify
 import datetime
 import os
 
-from os.path import join, dirname
-from dotenv import load_dotenv
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path) #setting env variables
+try:
+    from .local_settings import *
+except ValueError:
+    pass
 
 User._meta.get_field('email')._unique = True
 User._meta.get_field('username')._unique = True
