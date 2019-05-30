@@ -8,15 +8,16 @@ from cloudinary.models import CloudinaryField
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
 import datetime
+import os
 
 User._meta.get_field('email')._unique = True
 User._meta.get_field('username')._unique = True
 
 cloudinary.config( 
   secure=True,
-  cloud_name = "prakhargurunani", 
-  api_key = "252412724742197", 
-  api_secret = "LA9lwVhzVMlXOKGSOfDTU9QAUjQ" 
+  cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'), 
+  api_key = os.getenv('CLOUDINARY_API_KEY'), 
+  api_secret = os.getenv('CLOUDINARY_API_SECRET') 
 )
 
 class UserDetail(models.Model):

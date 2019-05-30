@@ -16,3 +16,4 @@ gunicorn==19.9.0
 dj-database-url==0.5.0
 cloudinary==1.15.0
 django-ckeditor==5.6.1
+django_smtp_ssl==1.0
