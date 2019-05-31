@@ -19,9 +19,19 @@ import django_smtp_ssl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR = os.path.join(BASE_DIR,'static')
-MEDIA_DIR = os.path.join(BASE_DIR,'media')
+TEMPLATE_DIR = os.path.join(BASE_DIR,'user/templates')
+STATIC_DIR = os.path.join(BASE_DIR,'user/static')
+MEDIA_DIR = os.path.join(BASE_DIR,'user/media')
+
+STATIC_ROOT  =   STATIC_DIR
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR]
+
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+LOGIN_URL = '/login/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -30,7 +40,7 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = '&s@@mdx^!lz0a2@&y@e62ng&brz$9y1-0o5r7wqqz42=a@f75*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 MAILER_EMAIL_BACKEND = EMAIL_BACKEND
@@ -142,18 +152,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 
-STATIC_ROOT  =   STATIC_DIR
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR]
-
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
-
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
-LOGIN_URL = '/login/'
 
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

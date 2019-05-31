@@ -110,6 +110,5 @@ vscode.code-workspace
 # Custom
 Tasks.txt
 user/media/
-media/
 staticfiles/
 .bashrc
