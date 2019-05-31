@@ -1,4 +1,3 @@
-Front page - before and after login
 Admin - change default page to VellXR custom styles
 Include Search bar
 Add comments model, following model
