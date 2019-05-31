@@ -6,7 +6,7 @@ Add views, likes, auto scroll model
 Seperate titles for different pages, meta description, meta charset, meta viewport, meta og image
 Use offline CSS and Javascript
 Custom error pages
-Comment code, Secure API Keys, Push to GitHub
+Comment code, Push to GitHub
 Setup Circle CI, Codecov
 Write tests
 Add dark mode

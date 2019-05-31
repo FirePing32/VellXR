@@ -10,7 +10,8 @@ from django.contrib.auth.models import User
 from .models import UserDetail, Post
 
 def index(request):
-    return render(request,'user/index.html')
+    user_posts_on_home = Post.objects.all.order_by('-published_date')[:9]
+    return render(request,'user/index.html', {'user_posts_on_home':user_posts_on_home})
 
 def about(request):
     return render(request,'user/about.html')

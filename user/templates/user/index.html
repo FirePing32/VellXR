@@ -2,13 +2,32 @@
 {% block body_block %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="container">
-  <div class="jumbotron text-center" style="background-color:white;">
-    {% if user.is_authenticated %}
-        <h3>Hello {{ user.username }}</h3>
-    {% else %}
-        <h1>Welcome to VellXR !</h1>
-        <h3>VellXR is a global forum for technology enthusiasts where they can write articles and collaborate with others.</h3>
-    {% endif %}
-  </div>
-</div>
+{% if user.is_authenticated %}
+<div class="jumbotron text-center" style="background-color:white;">
+    <h3>{{ user.username }}'s Digest</h3>
+    </div>
+    <br><br>
+    <div class="jumbotron text-center" style="background-color:white;"></div>
+    <div class="row">
+      {% for my_post in user_posts_on_home %}
+      <div class="col-sm-4">
+          <a href="{{ my_post.slug }}" style="text-decoration: none;"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969; overflow-wrap: break-word; text-decoration: none; white-space: normal; width: 200px;" class="btn btn-default">{{ my_post.title }}</h3></a><br><br><br><br>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+{% else %}
+    <h1>Welcome to VellXR !</h1>
+    <h3>VellXR is a global forum for technology enthusiasts where they can write articles and collaborate with others.</h3>
+    <br><br>
+    <div class="jumbotron text-center" style="background-color:white;"></div>
+    <div class="row">
+      {% for my_post in user_posts_on_home %}
+      <div class="col-sm-4">
+          <a href="{{ my_post.slug }}" style="text-decoration: none;"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969; overflow-wrap: break-word; text-decoration: none; white-space: normal; width: 200px;" class="btn btn-default">{{ my_post.title }}</h3></a><br><br><br><br>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+{% endif %}
 {% endblock %}
