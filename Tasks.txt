@@ -2,7 +2,6 @@ Admin - change default page to VellXR custom styles
 Include Search bar
 Add comments model, following model
 Add views, likes, auto scroll model
-Seperate titles for different pages, meta description, meta charset, meta viewport, meta og image
 Use offline CSS and Javascript
 Custom error pages
 Comment code, Push to GitHub
