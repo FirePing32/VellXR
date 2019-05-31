@@ -1,4 +1,5 @@
 {% extends "admin/base.html" %}
+{% load static from staticfiles %}
 
 {% block title %}{{ title }} | {{ site_title|default:_('VellXR') }}{% endblock %}
 
@@ -9,6 +10,6 @@
 {% block nav-global %}{% endblock %}
 
 {% block extrahead %}
-<script>window.CKEDITOR_BASEPATH = '/staticfiles/ckeditor/ckeditor';</script>
+<script>window.CKEDITOR_BASEPATH = "{% static 'ckeditor/ckeditor/' %}";</script>
 {{ block.super }}
 {% endblock %}
