@@ -1,8 +1,10 @@
 {% extends "user/base.html" %}
 {% load staticfiles %}
 {% block body_block %}
-<title>Posts • {{ user_posts.author }} | VellXR</title>
-<meta name="description" content="Posts • {{ user_posts.author }} | VellXR">
+{% for y in user_posts %}
+<title>Posts • {{ y.author }} | VellXR</title>
+<meta name="description" content="Posts • {{ y.author }} | VellXR">
+{% endfor %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="container">
     <div class="jumbotron text-center" style="background-color:white;">
