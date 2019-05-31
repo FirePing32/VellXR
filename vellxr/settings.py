@@ -19,18 +19,15 @@ import django_smtp_ssl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'user/templates')
-STATIC_DIR = os.path.join(BASE_DIR,'user/static')
-MEDIA_DIR = os.path.join(BASE_DIR,'user/media')
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 
-STATIC_ROOT  =   STATIC_DIR
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
 # Quick-start development settings - unsuitable for production

@@ -31,4 +31,4 @@ urlpatterns = [
     url(r'^profile/(?P<username>[-\w.]+)/$', views.user_profile, name='profile'),
     url(r'^profile/(?P<username>[-\w.]+)/posts/$', views.profile_posts, name='profile_posts'),
     url(r'^profile/(?P<username>[-\w.]+)/posts/(?P<slug>[-\w.]+)/$', views.profile_posts_detail, name='profile_posts_detail'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
