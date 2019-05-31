@@ -34,21 +34,21 @@ LOGIN_URL = '/login/'
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&s@@mdx^!lz0a2@&y@e62ng&brz$9y1-0o5r7wqqz42=a@f75*'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 MAILER_EMAIL_BACKEND = EMAIL_BACKEND
-ADMINS = [('Prakhar Gurunani', 'prakhargurunani@gmail.com')]
+ADMINS = [('Prakhar Gurunani', os.environ.get('ADMIN_EMAIL_ID'))]
 
-SENDGRID_API_KEY = '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'
-MAILER_LIST = ['prakhargurunani@gmail.com']
-DEFAULT_FROM_EMAIL = 'info@vellxr.herokuapp.com'
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+MAILER_LIST = [os.environ.get('ADMIN_EMAIL_ID')]
+DEFAULT_FROM_EMAIL = os.environ.get('VELLXR_EMAIL_ID')
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'prakhar_gurunani'
-EMAIL_HOST_PASSWORD = 'root@helloworld123'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
