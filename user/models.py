@@ -5,7 +5,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from cloudinary.models import CloudinaryField
-from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
 import datetime
 import os
