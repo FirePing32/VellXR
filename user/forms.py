@@ -33,3 +33,9 @@ class PostForm(forms.ModelForm):
     class Meta():
         model = Post
         fields = ('title', 'post_image', 'content')
+        widgets = {
+            'my_field': CKEditorWidget(attrs={
+                'class': 'my-ckeditor-class',
+                'id': 'my-ckeditor-id'
+            })
+        }
