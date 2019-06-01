@@ -16,6 +16,7 @@
         <h1>Write</h1><br>
 <form enctype="multipart/form-data" method="POST">
           {% csrf_token %}
+          {{ post_form.media }}
           {{ post_form.as_p }}
           <br>
           <input type="submit" name="" value="Publish" class="btn" style="font-family: Rubik;">
