@@ -35,7 +35,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=50)
     title = models.CharField(max_length=50) 
     post_image = CloudinaryField('image', blank=True, null=True, default="logo.png")
-    content = models.CharField() 
+    content = models.TextField() 
     published_date = models.DateTimeField(default=timezone.now) 
 
     def publish(self): 
