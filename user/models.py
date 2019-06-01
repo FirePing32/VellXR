@@ -15,9 +15,9 @@ User._meta.get_field('username')._unique = True
 
 cloudinary.config( 
   secure=True,
-  cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'), 
-  api_key = os.environ.get('CLOUDINARY_API_KEY'), 
-  api_secret = os.environ.get('CLOUDINARY_API_SECRET') 
+  cloud_name = 'prakhargurunani', 
+  api_key = '252412724742197', 
+  api_secret = 'LA9lwVhzVMlXOKGSOfDTU9QAUjQ' 
 )
 
 class UserDetail(models.Model):
