@@ -195,6 +195,7 @@ logging.config.dictConfig({
     }
 })
 
+'''
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_BASEPATH = os.path.join(STATIC_ROOT, 'ckeditor/ckeditor/')
 CKEDITOR_CONFIGS = {
@@ -219,6 +220,7 @@ CKEDITOR_CONFIGS = {
 
    },
 }
+'''
 
 django_heroku.settings(locals())
 

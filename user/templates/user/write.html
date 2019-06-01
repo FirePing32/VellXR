@@ -4,9 +4,6 @@
 {% block body_block %}
 <title>Write | VellXR</title>
 <meta name="description" content="Write | VellXR">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
-<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="container text-center">
     <div class="jumbotron" style="background-color:white;">
@@ -16,7 +13,6 @@
         <h1>Write</h1><br>
 <form enctype="multipart/form-data" method="POST">
           {% csrf_token %}
-          {{ post_form.media }}
           {{ post_form.as_p }}
           <br>
           <input type="submit" name="" value="Publish" class="btn" style="font-family: Rubik;">
