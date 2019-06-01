@@ -6,12 +6,29 @@
 <meta name="description" content="Posts • {{ y.author }} | VellXR">
 {% endfor %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex-container > div {
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+  }
+  </style>
 <div class="container">
     <div class="jumbotron text-center" style="background-color:white;">
-      <div class="row">
+      <div class="flex-container" style="justify-content: center;">
         {% for my_post in user_posts %}
-        <div class="col-sm-6">
-            <a href="{{ my_post.slug }}" style="text-decoration: none;"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969; overflow-wrap: break-word; text-decoration: none; white-space: normal; width: 200px;" class="btn btn-default">{{ my_post.title }}</h3></a><br><br><br><br>
+        <div>
+            <a href="{{ my_post.slug }}" style="text-decoration: none;">
+              <img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969; overflow-wrap: break-word; text-decoration: none; white-space: normal; width: 200px;" class="btn btn-default">{{ my_post.title }}</h3>
+            </a>
+            <br><br>
         </div>
         {% endfor %}
       </div>
