@@ -19,6 +19,7 @@ from django.conf.urls import url,include
 from django.conf.urls.static import static
 from user import views
 from . import settings
+import ckeditor
 
 urlpatterns = [
     path('admin/', admin.site.urls),
