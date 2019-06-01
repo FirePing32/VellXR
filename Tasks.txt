@@ -6,7 +6,6 @@ Use offline CSS and Javascript
 Custom error pages
 Comment code, Push to GitHub
 Setup Circle CI, Codecov
-Fix CKeditor
 Write tests
 Add dark mode
 Add website status page

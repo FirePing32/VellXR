@@ -27,7 +27,7 @@ class UserDetailForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
     post_image = forms.ImageField(required=False, widget=forms.FileInput(attrs={'class':'form-control text-center custom-file custom-file-input btn btn-default btn-file input-group-text', 'id':'inputGroupFile01', 'aria-describedby':'inputGroupFileAddon01', 'style':'text-align: center; vertical-align: center; width: 100%; height: 100%;'}))
-    content = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control text-center'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
 
     class Meta():
         model = Post
