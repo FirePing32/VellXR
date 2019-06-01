@@ -15,7 +15,7 @@
             <h5>{{ user_posts_detail.published_date }} • {% widthratio user_posts_detail.content|wordcount 300 1 %} min read</h5><br>
             <img src="{{ user_posts_detail.post_image.url }}" style="width: 300px; height: 300px; border-radius: 10%;" alt="{{ user_posts_detail.title }}" title="{{ user_posts_detail.title }}"><br><br>
         </div>
-        <div style="word-wrap: break-word;">
+        <div style="word-wrap: break-word; font-size: 20px; font-family: Rubik;">
         {{ user_posts_detail.content|safe }}
         </div>
         {% endfor %}
