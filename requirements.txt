@@ -4,7 +4,6 @@ cloudinary==1.15.0
 colorama==0.4.1
 dj-database-url==0.5.0
 Django==2.1.5
-django-ckeditor==5.6.1
 django-heroku==0.3.1
 django-js-asset==1.2.1
 django-smtp-ssl==1.0
@@ -15,7 +14,7 @@ mccabe==0.6.1
 mock==2.0.0
 pbr==5.1.2
 Pillow==5.4.1
-psycopg2-binary==2.7.7
+psycopg2-binary==2.8.2
 pylint==2.2.2
 pytz==2018.9
 six==1.12.0
