@@ -22,6 +22,7 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor.urls')),
     url(r'^$',views.index, name='index'),
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^register/$',views.register, name='register'),
