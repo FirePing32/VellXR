@@ -12,7 +12,7 @@
     <div class="jumbotron text-center" style="background-color:white;">
     <div class="row">
       {% for my_post in user_posts_on_home %}
-      <div class="col-sm-4">
+      <div class="col-sm-6">
           <a href="/profile/{{ my_post.author }}/posts/{{ my_post.slug }}" style="text-decoration: none;"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969; overflow-wrap: break-word; text-decoration: none; white-space: normal; width: 200px;" class="btn btn-default">{{ my_post.title }}</h3></a><br><br><br><br>
       </div>
       {% endfor %}
@@ -31,7 +31,7 @@
     <div class="jumbotron text-center" style="background-color:white;">
     <div class="row">
       {% for my_post in user_posts_on_home %}
-      <div class="col-sm-4">
+      <div class="col-sm-6">
           <a href="/profile/{{ my_post.author }}/posts/{{ my_post.slug }}" style="text-decoration: none;"><img src="{{ my_post.post_image.url }}" style="width: 200px; height: 200px; border-radius: 10%;" alt="{{ my_post.title }}" title="{{ my_post.title }}"><br><h3 style="color: #696969; overflow-wrap: break-word; text-decoration: none; white-space: normal; width: 200px;" class="btn btn-default">{{ my_post.title }}</h3></a><br><br><br><br>
       </div>
       {% endfor %}
