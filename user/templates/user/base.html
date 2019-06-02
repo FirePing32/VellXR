@@ -40,12 +40,52 @@
 </head>
 <body>
 <style>
+  .form-inline > input {
+    margin-left: 40px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-top-color: rgb(195, 209, 221);
+    border-bottom-color: rgb(195, 209, 221);
+    border-right-color: rgb(195, 209, 221);
+    border-left-color: rgb(195, 209, 221);
+    }
+  #right-navbar {
+    margin-right: 35px;
+  }
   .navbar-toggle:hover {
     background-color: #54B1F0 !important;
   }
   .navbar-toggle:focus{
     background-color: #54B1F0 !important;
   }
+  .active-cyan-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+  }
+  .active-cyan input[type=text] {
+      border-bottom: 1px solid #4dd0e1;
+      box-shadow: 0 1px 0 0 #4dd0e1;
+  }
+  .active-cyan .fa, .active-cyan-2 .fa {
+      color: #4dd0e1;
+  }
+  @media (max-width:768px) {
+    .form-inline > input {
+      width: 30% !important;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      margin-left: 35% !important;
+      margin-right: 35% !important;
+    }
+    #right-navbar {
+      width: 30%;
+      margin-left: 35%;
+      margin-right: 35%;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+  }
+}
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,9 +102,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        <li><a style="font-weight: bolder;" href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+      <li>
+        <form class="form-inline" style="margin-top: 7.5px;">
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </form>
+      </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" id="right-navbar">
           {% if user.is_authenticated %}
           <li><a style="font-weight: bolder;" href="{% url 'write' %}"><span class="fa fa-pencil-square"></span> Write</a></li>
           <li><a style="font-weight: bolder;" href="{% url 'logout' %}"><span class="fa fa-sign-out"></span> Logout</a></li>
@@ -72,6 +116,9 @@
           <li><a style="font-weight: bolder;" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <li><a style="font-weight: bolder;" href="{% url 'register' %}"><span class="fa fa-user"></span> Register</a></li>
           {% endif %}
+          <li>
+            <a style="font-weight: bolder;" href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+          </li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav> 
