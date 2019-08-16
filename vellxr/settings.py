@@ -41,7 +41,7 @@ DEBUG = False
 
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 MAILER_EMAIL_BACKEND = EMAIL_BACKEND
-ADMINS = [('Prakhar Gurunani', os.environ.get('ADMIN_EMAIL_ID'))]
+ADMINS = [('ADMIN_FULL_NAME', os.environ.get('ADMIN_EMAIL_ID'))]
 
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 MAILER_LIST = [os.environ.get('ADMIN_EMAIL_ID')]
