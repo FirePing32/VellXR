@@ -102,11 +102,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-      <li>
-        <form class="form-inline" style="margin-top: 7.5px;">
-          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </form>
-      </li>
+          <li>
+              <a style="font-weight: bolder;" href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+          </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" id="right-navbar">
           {% if user.is_authenticated %}
@@ -116,9 +114,6 @@
           <li><a style="font-weight: bolder;" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <li><a style="font-weight: bolder;" href="{% url 'register' %}"><span class="fa fa-user"></span> Register</a></li>
           {% endif %}
-          <li>
-            <a style="font-weight: bolder;" href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a>
-          </li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav> 

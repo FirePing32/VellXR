@@ -1,0 +1,47 @@
+{% extends "user/base.html" %}
+{% block body_block %}
+<title>Search results for - "{{ cur_search_query }}" | VellXR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ cur_search_query }} on VellXR">
+<style>
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+</style>
+<div class="jumbotron text-center" style="background-color:white;">
+    <h2>Search results for "{{ cur_search_query }}"</h2>
+</div>
+<div class="jumbotron text-center" style="background-color:white;">
+        <div class="split left">
+            <h3>Posts</h3>
+        </div>
+        <div class="split right">
+          <h3>Users</h3>
+        </div>
+</div>
+{% endblock %}

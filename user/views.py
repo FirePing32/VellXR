@@ -108,3 +108,12 @@ def profile_posts_detail(request, username, slug):
     return render(request, 'user/posts_detail.html', {'user_posts_details':user_posts_detail, 
                                                       'cur_user_username':cur_user_username,
                                                       'cur_user_image':cur_user_image})
+
+def search(request, search_query):
+    if request.method == 'GET':
+        cur_search_query = search_query
+        search_query_users = User.objects.filter(username=search_query)
+        search_query_posts = Post.objects.filter(title=search_query)
+        return render(request, 'user/search.html', {'cur_search_query':cur_search_query,
+                                                    'search_query_users':search_query_users,
+                                                    'search_query_posts':search_query_posts})
